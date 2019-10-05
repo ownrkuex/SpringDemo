@@ -1,0 +1,9 @@
+.idea/
+**/*.iml
+**/*.jar
+**/*.war
+**/*.class
+**/*.tar.gz
+**/*.rar
+**/*.zip
+**/*.log
