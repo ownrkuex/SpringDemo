@@ -1,10 +1,8 @@
 package priv.phr.demo.spring.ioc.config;
 
+import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.*;
 import org.springframework.context.event.ContextClosedEvent;
 
 @Configuration
@@ -28,6 +26,7 @@ public class BeanConfig {
     }
 
     @Bean
+    @Lazy
     public ICar car() {
         return new Car();
     }
@@ -40,5 +39,10 @@ public class BeanConfig {
     @Bean
     public ApplicationListener<ContextClosedEvent> contextClosedListener() {
         return new MyContextClosedListener();
+    }
+
+    @Bean
+    public InstantiationAwareBeanPostProcessor beanPostProcessor() {
+        return new MyBeanProcessor();
     }
 }
